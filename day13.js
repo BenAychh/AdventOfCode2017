@@ -22,7 +22,6 @@ function assembleDepthMap(layers) {
 
 function main(layers) {
     const depthMap = assembleDepthMap(layers);
-    console.log(depthMap);
     const severity = Reflect.ownKeys(depthMap).reduce((sum, layer) => {
         return isAtZero(+layer, +depthMap[layer]) ? +sum + (+layer * +depthMap[layer]) : +sum
     });
@@ -30,5 +29,3 @@ function main(layers) {
 }
 
 module.exports = main;
-
-console.log(main(input));
