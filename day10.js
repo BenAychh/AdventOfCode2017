@@ -18,7 +18,7 @@ function getNewCurrentPosition(currentPosition, size, steps) {
 }
 
 function shiftArrayLeft(array, count) {
-    // Just because the other one provides a new array
+    // Just because the other return path provides a shallow copy of the array
     if (count === 0) {
         return [...array];
     }
@@ -30,7 +30,7 @@ function shiftArrayLeft(array, count) {
 }
 
 function shiftArrayRight(array, count) {
-    // Just because the other one provides a new array
+    // Just because the other return path provides a shallow copy of the array
     if (count === 0) {
         return [...array];
     }
@@ -57,7 +57,7 @@ function main(size, stepsString) {
     const array = assembleArray(size)
     const steps = turnStepsStringIntoArray(stepsString);
     const endResult = steps.reduce(processStep, { array, currentPosition: 0 });
-    return endResult.array[0] * endResult.array[1];
+    return endResult.array;
 }
 
 module.exports = main;
